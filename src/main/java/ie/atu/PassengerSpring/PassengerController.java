@@ -2,10 +2,7 @@ package ie.atu.PassengerSpring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,25 @@ public class PassengerController {
 
         return myService.getPassenger( passengerID);
     }
+
+    @PostMapping("")
+    public void savePassenger(@RequestBody Passenger passenger)
+    {
+        myService.savePassenger(passenger);
+    }
+
+    @GetMapping("/name/{name}")
+    public Passenger getPassengerName(@PathVariable("name")String name)
+    {
+       return myService.findPassengerByName(name);
+    }
+
+    @DeleteMapping("/delete/{count}")
+    public void deletePassenger(@PathVariable("count")Long count)
+    {
+        myService.deletePassenger(count);
+    }
+
 
 
 }

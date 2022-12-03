@@ -1,5 +1,6 @@
 package ie.atu.PassengerSpring;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
+@Table
 
 public class Passenger {
     private String title;
@@ -16,6 +19,20 @@ public class Passenger {
     private String id;
     private long phone;
     private int age;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long count;
+
+
+    public Passenger(String title, String name, String id, long phone, int age) {
+        this.title = title;
+        this.name = name;
+        this.id = id;
+        this.phone = phone;
+        this.age = age;
+
+    }
 
     public String getTitle() {
         return title;
