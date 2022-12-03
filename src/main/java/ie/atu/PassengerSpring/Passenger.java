@@ -3,11 +3,11 @@ package ie.atu.PassengerSpring;
 public class Passenger {
     private String title;
     private String name;
-    private long id;
+    private String id;
     private long phone;
     private int age;
 
-    public Passenger(String title, String name, long id, long phone, int age) {
+    public Passenger(String title, String name, String id, long phone, int age) {
         setTitle(title);
         setName(name);
         setId(id);
@@ -41,12 +41,12 @@ public class Passenger {
         }
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
-        if(String.valueOf(id).length() >= 10){
+    public void setId(String id) {
+        if(id.length() >= 10){
             this.id = id;
         }
         else{
